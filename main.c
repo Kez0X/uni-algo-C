@@ -41,31 +41,40 @@ int ex3() {
 }
 
 int ex4() {
-    float min = 0, max = 0, sum = 0, average = 0, i = 0, nb = 0;
+    float note = 0;
 
-    while (nb >= 0) {
+    printf("Entrez la note : ");
+    scanf("%f", &note);
+
+    float max = note;
+    float min = note;
+    float sum = note;
+    float average = note;
+    float nbNotes = 1;
+
+    while (note != -1) {
         printf("\nEntrez une note : ");
-        scanf("%f", &nb);
+        scanf("%f", &note);
 
-        if (nb == -1) {
+        if (note == -1) {
             break;
         }
 
-        if (nb < min) {
-            min = nb;
+        if (note < min) {
+            min = note;
         }
 
-        if (nb > max) {
-            max = nb;
+        if (note > max) {
+            max = note;
         }
 
-        i++;
-        sum += nb;
+        nbNotes++;
+        sum += note;
 
-        average = sum / i;
+        average = sum / nbNotes;
     }
 
-    printf("La moyenne est égale à %f", average);
+    printf("La moyenne est %f\nLe min est %f\nLe max est %f", average, min, max);
 
     return 0;
 }
@@ -136,6 +145,6 @@ int ex7() {
 
 int main()
 {
-    ex7();
+    ex4();
     return 0;
 }
