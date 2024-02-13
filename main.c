@@ -74,9 +74,29 @@ void inverse(float t[], int n) {
 }
 
 void melange(float t[], int n) {
-    for (int i = 0; i < n; ++i) {
-        int alea = rand() % 5;
+    for (int i = 0; i < n/2; ++i) {
+        int indexAlea1 = rand() % (n-1);
+        int indexAlea2 = rand() % (n-1);
+        while (indexAlea1 == indexAlea2) {
+            indexAlea1 = rand() % n-1;
+            indexAlea2 = rand() % n-1;
+        }
+        float temp = t[indexAlea1];
+        t[indexAlea1] = t[indexAlea2];
+        t[indexAlea2] = temp;
+    }
+}
 
+void tri(float t[], int n) {
+    float temp;
+    for(int i = 0; i < n-1; i++) {
+        for(int j = i+1; j < n; j++) {
+            if (t[i] > t[j]) {
+                temp = t[i];
+                t[i] = t[j];
+                t[j] = temp;
+            }
+        }
     }
 }
 
@@ -102,6 +122,9 @@ int main()
     affiche(tNotes, nNotes);
 
     melange(tNotes, nNotes);
+    affiche(tNotes, nNotes);
+
+    tri(tNotes, nNotes);
     affiche(tNotes, nNotes);
 
     return 0;
