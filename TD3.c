@@ -92,13 +92,13 @@ void melange(float t[], int n) {
 }
 
 void tri(float t[], int n) {
-    float temp;
+    float swap;
     for(int i = 0; i < n-1; i++) {
         for(int j = i+1; j < n; j++) {
             if (t[i] > t[j]) {
-                temp = t[i];
+                swap = t[i];
                 t[i] = t[j];
-                t[j] = temp;
+                t[j] = swap;
             }
         }
     }
