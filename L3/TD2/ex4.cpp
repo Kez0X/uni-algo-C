@@ -43,7 +43,7 @@ int main() {
     {
         for (int j = 0; j < 3; j++)
         {
-            D[i][j] = A[i][j] * B[i][j];
+            D[i][j] = A[i][0] * B[0][j] + A[i][1] * B[1][j] + A[i][2] * B[2][j];
         }
         
     }
